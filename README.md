@@ -1,4 +1,4 @@
-# auth-react-redux
+# Auth-react-redux
 React app with redux - (Authentication Flow demo)
 
 # Authentication
