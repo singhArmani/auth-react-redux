@@ -6,7 +6,7 @@ import Login from "./pages/login";
 
 const App = () => (
   <Router>
-    <div>
+    <div className="container">
       <ul>
         <li>
           <Link to="/">Dashboard</Link>
@@ -17,7 +17,6 @@ const App = () => (
       </ul>
 
       <hr />
-
       <Route exact path="/" component={Dashboard} />
       <Route path="/contact" component={Contact} />
       <Route path="/login" component={Login} />

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { ControlLabel, Button, FormGroup, FormControl } from "react-bootstrap";
 class LoginForm extends React.PureComponent {
   state = {
     username: "",
@@ -18,35 +18,30 @@ class LoginForm extends React.PureComponent {
   render() {
     return (
       <form>
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input
+        <FormGroup controlId="formHorizontalEmail">
+          <ControlLabel>Username</ControlLabel>
+          <FormControl
             type="text"
-            className="form-control"
             name="username"
             value={this.state.username}
             onChange={this.handleChange}
-            placeholder="Enter username"
+            placeholder="Your username"
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
+        </FormGroup>
+
+        <FormGroup controlId="formHorizontalPassword">
+          <ControlLabel>Password</ControlLabel>
+          <FormControl
             type="password"
-            className="form-control"
             name="password"
-            placeholder="Password"
-            onChange={this.handleChange}
             value={this.state.password}
+            onChange={this.handleChange}
+            placeholder="Your password"
           />
-        </div>
-        <button
-          type="button"
-          className="btn btn-primary btn-lg btn-block"
-          onClick={this.handleSignIn}
-        >
-          Sign In
-        </button>
+        </FormGroup>
+        <Button bsStyle="primary" onClick={this.handleSignIn}>
+          Sign in
+        </Button>
       </form>
     );
   }

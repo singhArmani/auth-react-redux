@@ -16,7 +16,8 @@ class LoginPage extends React.PureComponent {
   render() {
     return (
       <div>
-        <LoginForm signIn={this.props.signInUser} />{" "}
+        <h1>Login Form</h1>
+        <LoginForm signIn={this.props.signInUser} />
         {this.props.authError && <LoginError error={this.props.authError} />}
       </div>
     );
