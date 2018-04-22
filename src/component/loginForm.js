@@ -13,7 +13,12 @@ class LoginForm extends React.PureComponent {
     });
   };
   handleSignIn = () => {
-    this.props.signIn(this.state.username, this.state.password);
+    // sending history object along so that we can redirect upon auth success
+    this.props.signIn(
+      this.state.username,
+      this.state.password,
+      this.props.history
+    );
   };
   render() {
     return (

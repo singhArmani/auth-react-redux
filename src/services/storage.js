@@ -1,20 +1,21 @@
 /**
  * Retreiving Token from Localstrogae
  *
+ * @param {string} key
  * @returns {object}  token
  */
-export function getToken() {
-  return localStorage.getItem("token");
+export function getItem(key) {
+  return localStorage.getItem(key);
 }
 
 /**
- * Saving Token from Localstrogae
+ * Saving Token to localstrogae
  *
- * @param {string} token
+ * @param {any} token
  * @returns {void}
  */
-export function saveToken(token) {
-  localStorage.setItem("token", token);
+export function setItem(key, item) {
+  localStorage.setItem(key, item);
 }
 
 /**
@@ -22,6 +23,6 @@ export function saveToken(token) {
  *
  * @param {string} key
  */
-export function remove(key) {
+export function removeItem(key) {
   localStorage.removeItem(key);
 }

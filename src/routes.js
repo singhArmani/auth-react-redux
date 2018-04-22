@@ -1,14 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
+import history from "./history";
+
+//Ref: https://stackoverflow.com/questions/42672842/how-to-get-history-on-react-router-v4
 
 import App from "./app";
-import Contact from "./pages/contact";
-import Dashboard from "./pages/dashboard";
-import Login from "./pages/login";
-import Navbar from "./component/navbar";
-
 export default (
-  <Router>
+  <Router history={history}>
     <div>
       <Route path="/" component={App} />
     </div>

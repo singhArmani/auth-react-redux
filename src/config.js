@@ -1,4 +1,9 @@
 export default {
   baseRoot: "http://localhost:8000/api",
-  defaultRoute: "/dashboard"
+  defaultRoute: "/dashboard",
+  routes: {
+    DASHBOARD: "/dashboard",
+    CONTACT: "/contact",
+    LOGIN: "/login"
+  }
 };

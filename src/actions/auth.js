@@ -1,5 +1,8 @@
 import * as Types from "../types/auth";
 import AuthApi from "../api/auth";
+import * as session from "../services/session";
+import { redirect } from "../services/redirect";
+import appConfig from "../config";
 
 /**
  * Authenticating a user
@@ -9,14 +12,24 @@ import AuthApi from "../api/auth";
  * @returns {Function}
  */
 export function authenticateUser(username, password) {
-  console.log(username, password);
   return async dispatch => {
     try {
       dispatch(userSigningIn(true));
       const response = await AuthApi.signIn(username, password);
+
+      // Inform redux about successful authentication
       dispatch(authSuccess(response.data.token));
+
+      // Also store token value in the LocalStorage
+      session.setToken(response.data.token);
+
       dispatch(userSigningIn(false));
+
+      // redirecting to the dashboard
+      redirect(appConfig.routes.DASHBOARD);
     } catch (err) {
+      debugger;
+      // depending upon our NodeJS express server error response
       dispatch(authError(err.response.data.error));
     }
   };
@@ -53,7 +66,6 @@ export function authSuccess(token) {
  * @returns {object}
  */
 export function authError(error) {
-  console.log("error dispatch::::", error);
   return {
     type: Types.AUTH_ERROR,
     payload: {
@@ -76,13 +88,17 @@ export function removeToken() {
 /**
  * Unauthenticae user
  *
- * @returns {object}
+ * @returns {Function} redux-thunk
  */
 export function unauthenticate() {
   return function(dispatch) {
     dispatch({
       type: Types.UNAUTH_USER
     });
+    // removing token from the redux
     dispatch(removeToken());
+
+    // removing from local storage too
+    session.removeToken();
   };
 }

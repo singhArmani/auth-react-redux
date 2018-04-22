@@ -30,7 +30,7 @@ const Navigationbar = ({ location, isAuthenticated }) => {
   } else {
     return (
       <Navbar>
-        <Nav>
+        <Nav pullRight>
           <NavItem
             componentClass={Link}
             href="/login"
