@@ -1,27 +1,26 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Contact from "./pages/contact";
+import { Route } from "react-router-dom";
+import { connect } from "react-redux";
+import NavBar from "./component/navbar";
 import Dashboard from "./pages/dashboard";
+import Contact from "./pages/contact";
 import Login from "./pages/login";
 
-const App = () => (
-  <Router>
-    <div className="container">
-      <ul>
-        <li>
-          <Link to="/">Dashboard</Link>
-        </li>
-        <li>
-          <Link to="/Contact">Contact</Link>
-        </li>
-      </ul>
+class App extends React.PureComponent {
+  render() {
+    return (
+      <div>
+        <NavBar isAuthenticated={this.props.authenticated} />
+        <div className="container">
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/login" component={Login} />
+        </div>
+      </div>
+    );
+  }
+}
 
-      <hr />
-      <Route exact path="/" component={Dashboard} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/login" component={Login} />
-    </div>
-  </Router>
-);
-
-export default App;
+export default connect(state => ({
+  authenticated: state.auth.authenticated
+}))(App);
