@@ -7,12 +7,16 @@ import Contact from "./pages/contact";
 import Login from "./pages/login";
 import requireAuth from "./common/requireAuth";
 import noRequireAuth from "./common/noRequireAuth";
+import * as AuthActions from "./actions/auth";
 
 class App extends React.PureComponent {
   render() {
     return (
       <div>
-        <NavBar isAuthenticated={this.props.authenticated} />
+        <NavBar
+          isAuthenticated={this.props.authenticated}
+          logOut={this.props.unauthenticate}
+        />
 
         <div className="container">
           <Route exact path="/dashboard" component={requireAuth(Dashboard)} />
@@ -24,6 +28,13 @@ class App extends React.PureComponent {
   }
 }
 
-export default connect(state => ({
-  authenticated: state.auth.authenticated
-}))(App);
+export default connect(
+  state => ({
+    authenticated: state.auth.authenticated
+  }),
+  dispatch => ({
+    unauthenticate: () => {
+      dispatch(AuthActions.unauthenticate());
+    }
+  })
+)(App);
