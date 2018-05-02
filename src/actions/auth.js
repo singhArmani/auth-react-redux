@@ -1,3 +1,4 @@
+import { has } from "lodash";
 import * as Types from "../types/auth";
 import AuthApi from "../api/auth";
 import * as session from "../services/session";
@@ -28,9 +29,15 @@ export function authenticateUser(username, password) {
       // redirecting to the dashboard
       redirect(appConfig.routes.DASHBOARD);
     } catch (err) {
-      debugger;
-      // depending upon our NodeJS express server error response
-      dispatch(authError(err.response.data.error));
+      if (has(err, "response.data")) {
+        dispatch(authError(err.response.data.error));
+      } else {
+        dispatch(
+          authError(
+            "Technical Error occured. Check if you are running the auth server!"
+          )
+        );
+      }
     }
   };
 }
