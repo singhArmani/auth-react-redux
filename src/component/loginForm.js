@@ -1,9 +1,14 @@
 import React from "react";
+import { bool } from "prop-types";
 import { ControlLabel, Button, FormGroup, FormControl } from "react-bootstrap";
 class LoginForm extends React.PureComponent {
   state = {
     username: "",
     password: ""
+  };
+
+  static propTypes = {
+    isUserSigningIn: bool.isRequired
   };
 
   handleChange = event => {
@@ -12,6 +17,7 @@ class LoginForm extends React.PureComponent {
       [name]: value
     });
   };
+
   handleSignIn = () => {
     // sending history object along so that we can redirect upon auth success
     this.props.signIn(
@@ -44,8 +50,12 @@ class LoginForm extends React.PureComponent {
             placeholder="Your password"
           />
         </FormGroup>
-        <Button bsStyle="primary" onClick={this.handleSignIn}>
-          Sign in
+        <Button
+          bsStyle="primary"
+          disabled={this.props.isUserSigningIn}
+          onClick={this.handleSignIn}
+        >
+          Sign In
         </Button>
       </form>
     );

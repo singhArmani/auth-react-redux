@@ -13,10 +13,16 @@ const reducer = (state = initialState, action) => {
         ...state,
         error: "",
         token: action.payload.token,
-        authenticated: true
+        authenticated: true,
+        isUserSigningIn: false
       };
     case Types.AUTH_ERROR:
-      return { ...state, error: action.payload.error, authenticated: false };
+      return {
+        ...state,
+        error: action.payload.error,
+        authenticated: false,
+        isUserSigningIn: false
+      };
     case Types.UNAUTH_USER:
       return { ...state, error: "", authenticated: false };
     case Types.DELETE_TOKEN:
