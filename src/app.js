@@ -6,8 +6,6 @@ import Dashboard from "./pages/dashboard";
 import Contact from "./pages/contact";
 import Home from "./pages/home";
 import Login from "./pages/login";
-import requireAuth from "./common/requireAuth";
-import noRequireAuth from "./common/noRequireAuth";
 import * as AuthActions from "./actions/auth";
 import history from "./history";
 
@@ -22,10 +20,10 @@ class App extends React.PureComponent {
           />
 
           <div className="container">
-            <Route exact path="/" component={requireAuth(Home)} />
-            <Route path="/dashboard" component={requireAuth(Dashboard)} />
-            <Route path="/contact" component={requireAuth(Contact)} />
-            <Route path="/login" component={noRequireAuth(Login)} />
+            <Route exact path="/" component={Home} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/login" component={Login} />
           </div>
         </div>
       </Router>
