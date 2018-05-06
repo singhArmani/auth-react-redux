@@ -4,6 +4,7 @@ export default {
   routes: {
     DASHBOARD: "/dashboard",
     CONTACT: "/contact",
-    LOGIN: "/login"
+    LOGIN: "/login",
+    HOME: "/"
   }
 };

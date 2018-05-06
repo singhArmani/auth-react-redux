@@ -18,6 +18,14 @@ class Navigationbar extends React.PureComponent {
           <Nav>
             <NavItem
               componentClass={Link}
+              href="/"
+              to="/"
+              active={this.props.location.pathname === "/"}
+            >
+              Home
+            </NavItem>
+            <NavItem
+              componentClass={Link}
               href="/dashboard"
               to="/dashboard"
               active={this.props.location.pathname === "/dashboard"}
