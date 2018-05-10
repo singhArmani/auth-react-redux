@@ -1,18 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, withRouter } from "react-router-dom";
-import { Navbar, NavItem, Nav } from "react-bootstrap";
+import {connect} from 'react-redux';
+import {Link, withRouter} from "react-router-dom";
+import {Navbar, NavItem, Nav} from "react-bootstrap";
 
+import * as AuthActions from "../actions/auth";
 class Navigationbar extends React.PureComponent {
   static propTypes = {
-    isAuthenticated: PropTypes.bool.isRequired,
+    unauthenticate: PropTypes.func.isRequired,
     location: PropTypes.object.isRequired
   };
   handleLogOut = event => {
-    this.props.logOut();
+    this
+      .props
+      .unauthenticate();
   };
   render() {
-    if (this.props.isAuthenticated) {
+    if (this.props.authenticated) {
       return (
         <Navbar>
           <Nav>
@@ -20,24 +24,21 @@ class Navigationbar extends React.PureComponent {
               componentClass={Link}
               href="/"
               to="/"
-              active={this.props.location.pathname === "/"}
-            >
+              active={this.props.location.pathname === "/"}>
               Home
             </NavItem>
             <NavItem
               componentClass={Link}
               href="/dashboard"
               to="/dashboard"
-              active={this.props.location.pathname === "/dashboard"}
-            >
+              active={this.props.location.pathname === "/dashboard"}>
               Dashboard
             </NavItem>
             <NavItem
               componentClass={Link}
               href="/contact"
               to="/contact"
-              active={this.props.location.pathname === "/contact"}
-            >
+              active={this.props.location.pathname === "/contact"}>
               Contact
             </NavItem>
           </Nav>
@@ -47,22 +48,13 @@ class Navigationbar extends React.PureComponent {
         </Navbar>
       );
     } else {
-      return (
-        <Navbar>
-          <Nav pullRight>
-            <NavItem
-              componentClass={Link}
-              href="/login"
-              to="/login"
-              active={this.props.location.pathname === "/login"}
-            >
-              Login
-            </NavItem>
-          </Nav>
-        </Navbar>
-      );
+      return null;
     }
   }
 }
-
-export default withRouter(Navigationbar);
+const ConnectedNavBar = connect(state => ({authenticated: state.auth.authenticated}), dispatch => ({
+  unauthenticate: () => {
+    dispatch(AuthActions.unauthenticate());
+  }
+}))(Navigationbar);
+export default withRouter(ConnectedNavBar);
