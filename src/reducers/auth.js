@@ -20,7 +20,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload.error,
-        authenticated: false,
         isUserSigningIn: false
       };
     case Types.UNAUTH_USER:
