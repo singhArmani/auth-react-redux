@@ -35,7 +35,8 @@ jobs:
 
       # run tests!
       - run: yarn test
-  deployment:
+
+deployment:
     dockerhub:
       branch: master
       commands:
