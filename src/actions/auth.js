@@ -1,9 +1,9 @@
-import { has } from "lodash";
-import * as Types from "../types/auth";
-import AuthApi from "../api/auth";
-import * as session from "../services/session";
-import { redirect } from "../services/redirect";
-import appConfig from "../config";
+import { has } from 'lodash';
+import * as Types from '../types/auth';
+import AuthApi from '../api/auth';
+import * as session from '../services/session';
+import { redirect } from '../services/redirect';
+import appConfig from '../config';
 
 /**
  * Authenticating a user
@@ -29,12 +29,12 @@ export function authenticateUser(username, password) {
       // redirecting to the dashboard
       redirect(appConfig.routes.DASHBOARD);
     } catch (err) {
-      if (has(err, "response.data")) {
+      if (has(err, 'response.data')) {
         dispatch(authError(err.response.data.error));
       } else {
         dispatch(
           authError(
-            "Technical Error occured. Check if you are running the auth server!"
+            'Technical Error occured. Check if you are running the auth server!'
           )
         );
       }

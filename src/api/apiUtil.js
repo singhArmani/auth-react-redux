@@ -1,5 +1,5 @@
-import axios from "axios";
-import appConfig from "../config";
+import axios from 'axios';
+import appConfig from '../config';
 class APIUtil {
   constructor(root = appConfig.baseRoot) {
     this.root = root;

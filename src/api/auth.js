@@ -1,4 +1,4 @@
-import APIUtil from "./apiUtil";
+import APIUtil from './apiUtil';
 
 const api = new APIUtil();
 
@@ -14,7 +14,7 @@ const AuthApi = {
       }
     };
 
-    return api.post("login", {}, config);
+    return api.post('login', {}, config);
   }
 };
 

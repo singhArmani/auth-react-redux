@@ -1,7 +1,7 @@
-import jwtDecode from "jwt-decode";
+import jwtDecode from 'jwt-decode';
 
-import store from "../store";
-import * as storage from "./storage";
+import store from '../store';
+import * as storage from './storage';
 /**
  * Tries to decode jwt and checks the expiration date
  *
@@ -15,7 +15,7 @@ export function isTokenValid(token) {
 
   try {
     const decoded = jwtDecode(token);
-    if (typeof decoded.exp === "undefined") {
+    if (typeof decoded.exp === 'undefined') {
       return false;
     }
 
@@ -40,7 +40,7 @@ export function isAuthenticated() {
  */
 export function setToken(token) {
   if (token) {
-    storage.setItem("token", token);
+    storage.setItem('token', token);
   }
 }
 
@@ -57,7 +57,7 @@ export function getToken() {
     return token;
   }
   // if not in Redux, try and grab it from local storage
-  token = storage.getItem("token");
+  token = storage.getItem('token');
   if (token) {
     return token;
   }
@@ -70,5 +70,5 @@ export function getToken() {
  * @returns {void}
  */
 export function removeToken() {
-  storage.removeItem("token");
+  storage.removeItem('token');
 }
