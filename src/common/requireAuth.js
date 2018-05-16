@@ -1,16 +1,23 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bool, func } from 'prop-types';
+import {
+  connect
+} from 'react-redux';
+import {
+  bool,
+  func
+} from 'prop-types';
 
 import * as session from '../services/session';
-import { redirect } from '../services/redirect';
+import {
+  redirect
+} from '../services/redirect';
 
 import * as AuthActions from '../actions/auth';
 import appConfig from '../config';
 
-export default function(ComposedComponent) {
+export default function (ComposedComponent) {
   class Authentication extends React.Component {
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
       // First check if we are authenticated in redux
       if (this.props.authenticated) {
         return;
@@ -31,7 +38,7 @@ export default function(ComposedComponent) {
       }
     }
 
-    componentWillUpdate(nextProps) {
+    UNSAFE_componentWillUpdate(nextProps) {
       // If the user is not authenticated, there is no token or the token is invalid, sign out the user and redirect
       // to the sign in page
       if (!nextProps.authenticated || !session.isAuthenticated()) {
@@ -46,8 +53,10 @@ export default function(ComposedComponent) {
     }
 
     render() {
-      return this.props.authenticated ? (
-        <ComposedComponent {...this.props} />
+      return this.props.authenticated ? ( <
+        ComposedComponent { ...this.props
+        }
+      />
       ) : null;
     }
   }
