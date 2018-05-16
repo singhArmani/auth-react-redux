@@ -39,6 +39,8 @@ jobs:
   deploy:
     hub:
       branch: master
-      commands:
-        - $DOCKER_HUB_TRIGGER
+      steps:
+        -run:
+          commands:
+            - $DOCKER_HUB_TRIGGER
 
