@@ -36,7 +36,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "./node_modules/.bin/eslint --ext .js --ext .jsx src"
+    "lint": "./node_modules/.bin/eslint --ext .js --ext .jsx src",
+    "precommit": "lint-staged"
   },
 
   "lint-staged": {
@@ -44,10 +45,5 @@
       "./node_modules/.bin/eslint --fix",
       "git add"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn test && lint-staged"
-    }
   }
 }
