@@ -7,7 +7,7 @@
     "node": true,
     "jest": true
   },
-  "extends": ["eslint:recommended", "plugin:prettier/recommended", "plugin:react/recommended"],
+  "extends": ["eslint:recommended", "prettier", "plugin:react/recommended"],
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
@@ -18,6 +18,7 @@
   "plugins": ["react"],
   "rules": {
     "react/prop-types": ["off"],
+    "quotes": ["error", "single"],
     "indent": ["error", 2],
     "semi": ["error", "always"],
     "no-console": ["warn", {

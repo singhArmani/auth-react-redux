@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GoalList renders correctly 1`] = `
+<ul>
+  <li>
+    test goal 1
+  </li>
+  <li>
+    test goal 2
+  </li>
+</ul>
+`;

@@ -1,37 +1,36 @@
-import * as goalTypes from '../types/goal';
-import GoalApi from '../api/goal';
+import * as goalTypes from "../types/goal";
+import GoalApi from "../api/goal";
 
 export const startFetchingGoals = () => ({
-  type: goalTypes.START_FETCHING_GOALS,
+  type: goalTypes.START_FETCHING_GOALS
 });
 
 export const stopFetchingGoals = () => ({
-  type: goalTypes.STOP_FETCHING_GOALS,
+  type: goalTypes.STOP_FETCHING_GOALS
 });
-
 
 export const getGoals = () => {
   return async dispatch => {
     dispatch(startFetchingGoals());
-    try{
+    try {
       const response = await GoalApi.getGoals();
-      dispatch(updateGoals(response.data.goals));
+      dispatch(updateGoals(response.data.goalList));
       dispatch(stopFetchingGoals());
-    }catch(err) {
+    } catch (err) {
       dispatch(stopFetchingGoals());
       dispatch({
         type: goalTypes.ERROR_FETCHING_GOALS,
         payload: {
-          error: err.message || 'Error Occured while fetching goals'
+          error: err.message || "Error Occured while fetching goalList"
         }
       });
     }
   };
 };
 
-export const updateGoals = (goals) => ({
+export const updateGoals = goalList => ({
   type: goalTypes.UPDATE_GOALS,
   payload: {
-    goals
+    goalList
   }
 });

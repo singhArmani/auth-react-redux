@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm renders correctly 1`] = `
+<form>
+  <div
+    className="form-group"
+  >
+    <label
+      className="control-label"
+      htmlFor="formHorizontalEmail"
+    >
+      Username
+    </label>
+    <input
+      className="form-control"
+      id="formHorizontalEmail"
+      name="username"
+      onChange={[Function]}
+      placeholder="Your username"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="form-group"
+  >
+    <label
+      className="control-label"
+      htmlFor="formHorizontalPassword"
+    >
+      Password
+    </label>
+    <input
+      className="form-control"
+      id="formHorizontalPassword"
+      name="password"
+      onChange={[Function]}
+      placeholder="Your password"
+      type="password"
+      value=""
+    />
+  </div>
+  <button
+    className="btn btn-primary"
+    disabled={false}
+    onClick={[Function]}
+    type="button"
+  >
+    Sign In
+  </button>
+</form>
+`;

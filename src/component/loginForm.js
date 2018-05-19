@@ -1,5 +1,5 @@
 import React from "react";
-import { bool } from "prop-types";
+import { bool, func } from "prop-types";
 import { ControlLabel, Button, FormGroup, FormControl } from "react-bootstrap";
 class LoginForm extends React.PureComponent {
   state = {
@@ -8,6 +8,7 @@ class LoginForm extends React.PureComponent {
   };
 
   static propTypes = {
+    signIn: func.isRequired,
     isUserSigningIn: bool.isRequired
   };
 

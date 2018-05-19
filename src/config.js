@@ -6,6 +6,7 @@ export default {
     HOME: "/",
     DASHBOARD: "/dashboard",
     CONTACT: "/contact",
-    LOGIN: "/login"
+    LOGIN: "/login",
+    PROPS: "/props"
   }
 };

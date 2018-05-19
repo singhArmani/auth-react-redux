@@ -2,13 +2,13 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import Goals from "../component/goals";
+import Goals from "../component/goalList";
 import { getGoals } from "../actions/goal";
 
 class Dashboard extends React.PureComponent {
   static propTypes = {
     isFetchingGoals: PropTypes.bool.isRequired,
-    goals: PropTypes.arrayOf(PropTypes.string).isRequired
+    goalList: PropTypes.arrayOf(PropTypes.string).isRequired
   };
 
   handleClick = () => {
@@ -29,7 +29,7 @@ class Dashboard extends React.PureComponent {
           Get My Goals
         </Button>
         <Goals
-          goals={this.props.goals}
+          goalList={this.props.goalList}
           errorFetchingGoals={this.props.errorFetchingGoals}
         />
       </div>
@@ -39,7 +39,7 @@ class Dashboard extends React.PureComponent {
 
 export default connect(
   state => ({
-    goals: state.goal.goals,
+    goalList: state.goal.goalList,
     isFetchingGoals: state.goal.fetchingGoals,
     errorFetchingGoals: state.goal.errorFetchingGoals
   }),
