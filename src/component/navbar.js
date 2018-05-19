@@ -21,6 +21,7 @@ class Navigationbar extends React.PureComponent {
     return map(Object.entries(config.routes), ([key, value]) => {
       return (
         <NavItem
+          key={key}
           componentClass={Link}
           href={value}
           to={value}

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorSwatch renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": undefined,
+      "borderColor": "#000000",
+      "borderRadius": 15,
+      "borderStyle": "solid",
+      "margin": 15,
+      "padding": 20,
+      "textAlign": "center",
+    }
+  }
+>
+  <h2>
+    Text: 
+    
+  </h2>
+  <h2>
+    Path: 
+    /
+  </h2>
+</div>
+`;

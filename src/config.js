@@ -7,6 +7,7 @@ export default {
     DASHBOARD: '/dashboard',
     CONTACT: '/contact',
     LOGIN: '/login',
-    PROPS: '/props'
+    PROPS: '/props',
+    COLOR: '/colors'
   }
 };
