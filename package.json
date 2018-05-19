@@ -40,5 +40,10 @@
   },
   "lint-staged": {
     "*.js": ["eslint --fix", "git add"]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commits": "yarn test"
+    }
   }
 }
