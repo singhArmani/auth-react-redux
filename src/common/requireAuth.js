@@ -1,21 +1,14 @@
-import React from 'react';
-import {
-  connect
-} from 'react-redux';
-import {
-  bool,
-  func
-} from 'prop-types';
+import React from "react";
+import { connect } from "react-redux";
+import { bool, func } from "prop-types";
 
-import * as session from '../services/session';
-import {
-  redirect
-} from '../services/redirect';
+import * as session from "../services/session";
+import { redirect } from "../services/redirect";
 
-import * as AuthActions from '../actions/auth';
-import appConfig from '../config';
+import * as AuthActions from "../actions/auth";
+import appConfig from "../config";
 
-export default function (ComposedComponent) {
+export default function(ComposedComponent) {
   class Authentication extends React.Component {
     UNSAFE_componentWillMount() {
       // First check if we are authenticated in redux
@@ -53,10 +46,8 @@ export default function (ComposedComponent) {
     }
 
     render() {
-      return this.props.authenticated ? ( <
-        ComposedComponent { ...this.props
-        }
-      />
+      return this.props.authenticated ? (
+        <ComposedComponent {...this.props} />
       ) : null;
     }
   }

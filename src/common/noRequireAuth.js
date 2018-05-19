@@ -8,14 +8,14 @@ import appConfig from "../config";
 
 export default function(ComposedComponent) {
   class NoAuthentication extends React.PureComponent {
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
       // checking redux state, otherwise look for token in localStorage
       if (this.props.authenticated || session.isAuthenticated()) {
         redirect(appConfig.routes.DASHBOARD);
       }
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
       if (nextProps.authenticated) {
         redirect(appConfig.routes.DASHBOARD);
       }

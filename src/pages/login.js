@@ -1,6 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import LoginForm from "../component/loginForm";
 import LoginError from "../common/loginError";
 
@@ -16,17 +16,22 @@ class LoginPage extends React.PureComponent {
   render() {
     return (
       <div>
-        <h2>Login
-        </h2>
+        <h2>Login</h2>
         <LoginForm
           signIn={this.props.signInUser}
-          isUserSigningIn={this.props.isUserSigningIn}/> {this.props.authError && <LoginError error={this.props.authError}/>}
+          isUserSigningIn={this.props.isUserSigningIn}
+        />{" "}
+        {this.props.authError && <LoginError error={this.props.authError} />}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({authenticated: state.auth.authenticated, isUserSigningIn: state.auth.isUserSigningIn, authError: state.auth.error});
+const mapStateToProps = state => ({
+  authenticated: state.auth.authenticated,
+  isUserSigningIn: state.auth.isUserSigningIn,
+  authError: state.auth.error
+});
 
 const mapDispatchToProps = dispatch => ({
   signInUser: (username, password) => {

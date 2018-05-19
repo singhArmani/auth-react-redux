@@ -1,12 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const Goal = props => {
-  return (
-    <li>
-      {props.goal}
-    </li>
-  );
+  return <li>{props.goal}</li>;
 };
 
 Goal.propTypes = {
