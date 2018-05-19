@@ -1,5 +1,5 @@
 import React from "react";
-import {Router, Route} from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 
 import NavBar from "./component/navbar";
 import Dashboard from "./pages/dashboard";
@@ -16,13 +16,15 @@ class App extends React.PureComponent {
     return (
       <Router history={history}>
         <div>
-          <NavBar/>
+          <NavBar />
 
           <div className="container">
-            <Route exact path="/" component={requireAuth(Home)}/>
-            <Route path="/dashboard" component={requireAuth(Dashboard)}/>
-            <Route path="/contact" component={requireAuth(Contact)}/>
-            <Route path="/login" component={noRequireAuth(Login)}/>
+            <Switch>
+              <Route exact path="/" component={requireAuth(Home)} />
+              <Route path="/dashboard" component={requireAuth(Dashboard)} />
+              <Route path="/contact" component={requireAuth(Contact)} />
+              <Route path="/login" component={noRequireAuth(Login)} />
+            </Switch>
           </div>
         </div>
       </Router>
