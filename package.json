@@ -38,8 +38,13 @@
     "eject": "react-scripts eject",
     "precommit": "lint-staged"
   },
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true
+  },
   "lint-staged": {
-    "*.js": ["eslint --fix", "git add"]
+    "*.js": ["prettier --write", "git add"]
   },
   "husky": {
     "hooks": {
