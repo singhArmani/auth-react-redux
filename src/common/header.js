@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Header = props => {
   return (
     <header className="container">
       <div className="page-header">
-        <h1>{this.props.title}</h1>
+        <h1>Title: {this.props.title}</h1>
       </div>
     </header>
   );
@@ -16,7 +16,7 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  title: ""
+  title: ''
 };
 
 export default Header;

@@ -36,19 +36,18 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "precommit": "lint-staged"
+    "lint": "./node_modules/.bin/eslint --ext .js --ext .jsx src"
   },
-  "prettier": {
-    "trailingComma": "es5",
-    "semi": false,
-    "singleQuote": true
-  },
+
   "lint-staged": {
-    "*.js": ["prettier --write", "git add"]
+    "*.{js,jsx}": [
+      "./node_modules/.bin/eslint --fix",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test"
+      "pre-commit": "yarn test && lint-staged"
     }
   }
 }

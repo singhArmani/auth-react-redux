@@ -1,5 +1,5 @@
-import * as goalTypes from "../types/goal";
-import GoalApi from "../api/goal";
+import * as goalTypes from '../types/goal';
+import GoalApi from '../api/goal';
 
 export const startFetchingGoals = () => ({
   type: goalTypes.START_FETCHING_GOALS
@@ -21,7 +21,7 @@ export const getGoals = () => {
       dispatch({
         type: goalTypes.ERROR_FETCHING_GOALS,
         payload: {
-          error: err.message || "Error Occured while fetching goalList"
+          error: err.message || 'Error Occured while fetching goalList'
         }
       });
     }

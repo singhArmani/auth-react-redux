@@ -3,6 +3,7 @@ import GoalList from '../goalList';
 
 import renderer from 'react-test-renderer';
 
+
 describe('GoalList', () => {
   const testProps = {
     isFetchingGoals: false,
