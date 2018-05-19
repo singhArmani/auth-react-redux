@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { Link, withRouter } from "react-router-dom";
-import { Navbar, NavItem, Nav } from "react-bootstrap";
-import { map } from "lodash";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
+import { Navbar, NavItem, Nav } from 'react-bootstrap';
+import { map } from 'lodash';
 
-import * as AuthActions from "../actions/auth";
-import config from "../config";
+import * as AuthActions from '../actions/auth';
+import config from '../config';
 
 class Navigationbar extends React.PureComponent {
   static propTypes = {

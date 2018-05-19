@@ -1,10 +1,10 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import LoginForm from "../component/loginForm";
-import LoginError from "../common/loginError";
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import LoginForm from '../component/loginForm';
+import LoginError from '../common/loginError';
 
-import * as AuthActions from "../actions/auth";
+import * as AuthActions from '../actions/auth';
 
 class LoginPage extends React.PureComponent {
   static propTypes = {
@@ -20,7 +20,7 @@ class LoginPage extends React.PureComponent {
         <LoginForm
           signIn={this.props.signInUser}
           isUserSigningIn={this.props.isUserSigningIn}
-        />{" "}
+        />{' '}
         {this.props.authError && <LoginError error={this.props.authError} />}
       </div>
     );

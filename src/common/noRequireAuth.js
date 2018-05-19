@@ -1,10 +1,10 @@
-import React from "react";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { redirect } from "../services/redirect";
-import * as session from "../services/session";
-import appConfig from "../config";
+import { redirect } from '../services/redirect';
+import * as session from '../services/session';
+import appConfig from '../config';
 
 export default function(ComposedComponent) {
   class NoAuthentication extends React.PureComponent {

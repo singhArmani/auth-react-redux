@@ -1,17 +1,17 @@
-import React from "react";
-import { Router, Route, Switch } from "react-router-dom";
+import React from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
 
-import NavBar from "./component/navbar";
-import Dashboard from "./pages/dashboard";
-import Contact from "./pages/contact";
-import Home from "./pages/home";
-import Login from "./pages/login";
-import PropViewer from "./pages/propViewer";
-import requireAuth from "./common/requireAuth";
-import noRequireAuth from "./common/noRequireAuth";
+import NavBar from './component/navbar';
+import Dashboard from './pages/dashboard';
+import Contact from './pages/contact';
+import Home from './pages/home';
+import Login from './pages/login';
+import PropViewer from './pages/propViewer';
+import requireAuth from './common/requireAuth';
+import noRequireAuth from './common/noRequireAuth';
 
-import history from "./history";
-import config from "./config";
+import history from './history';
+import config from './config';
 
 class App extends React.PureComponent {
   render() {

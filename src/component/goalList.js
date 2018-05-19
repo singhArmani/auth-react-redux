@@ -1,9 +1,9 @@
-import React from "react";
-import { map } from "lodash";
-import { bool, arrayOf, string } from "prop-types";
-import { Alert } from "react-bootstrap";
+import React from 'react';
+import { map } from 'lodash';
+import { bool, arrayOf, string } from 'prop-types';
+import { Alert } from 'react-bootstrap';
 
-import Goal from "../common/goal";
+import Goal from '../common/goal';
 
 const GoalList = props => {
   if (props.isFetchingGoals) {

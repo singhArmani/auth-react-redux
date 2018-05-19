@@ -1,9 +1,9 @@
-import React from "react";
-import { Button } from "react-bootstrap";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import Goals from "../component/goalList";
-import { getGoals } from "../actions/goal";
+import React from 'react';
+import { Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import Goals from '../component/goalList';
+import { getGoals } from '../actions/goal';
 
 class Dashboard extends React.PureComponent {
   static propTypes = {

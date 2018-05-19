@@ -1,10 +1,10 @@
-import React from "react";
-import { bool, func } from "prop-types";
-import { ControlLabel, Button, FormGroup, FormControl } from "react-bootstrap";
+import React from 'react';
+import { bool, func } from 'prop-types';
+import { ControlLabel, Button, FormGroup, FormControl } from 'react-bootstrap';
 class LoginForm extends React.PureComponent {
   state = {
-    username: "",
-    password: ""
+    username: '',
+    password: ''
   };
 
   static propTypes = {

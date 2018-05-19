@@ -5,7 +5,7 @@ const Header = props => {
   return (
     <header className="container">
       <div className="page-header">
-        <h1>Title: {this.props.title}</h1>
+        <h1>Title is : {props.title}</h1>
       </div>
     </header>
   );
