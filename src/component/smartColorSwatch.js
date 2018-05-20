@@ -1,10 +1,9 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import { string, shape } from 'prop-types';
 
-const ColorSwatch = props => {
+const SmartColorSwatch = props => {
   const style = {
-    backgroundColor: props.color,
+    backgroundColor: props.match.params.color,
     textAlign: 'center',
     padding: 20,
     borderColor: '#000000',
@@ -15,18 +14,19 @@ const ColorSwatch = props => {
 
   return (
     <div style={style}>
-      <h2>Text: {props.text}</h2>
+      <h2>Text: {props.match.params.text}</h2>
       <h2>Path: {props.match.path}</h2>
     </div>
   );
 };
 
-ColorSwatch.propTypes = {
-  text: string.isRequired,
+SmartColorSwatch.propTypes = {
   match: shape({
     path: string,
-    url: string
+    params: shape({
+      text: string
+    })
   })
 };
 
-export default withRouter(ColorSwatch);
+export default SmartColorSwatch;

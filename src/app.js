@@ -13,6 +13,7 @@ import noRequireAuth from './common/noRequireAuth';
 import history from './history';
 import config from './config';
 import ColorSwatch from './component/colorSwatch';
+import SmartColorSwatch from './component/smartColorSwatch';
 
 class App extends React.PureComponent {
   render() {
@@ -35,14 +36,13 @@ class App extends React.PureComponent {
                 path={config.routes.LOGIN}
                 component={noRequireAuth(Login)}
               />
+              <Route path={config.routes.PROPS} component={PropViewer} />
               <Route
-                path={config.routes.PROPS}
-                component={noRequireAuth(PropViewer)}
-              />
-              <Route
+                exact
                 path={config.routes.COLOR}
                 render={() => <ColorSwatch text="Red" color="#ff0000" />}
               />
+              <Route path="/:text/:color" component={SmartColorSwatch} />
             </Switch>
           </div>
         </div>

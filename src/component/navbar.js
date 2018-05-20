@@ -17,8 +17,11 @@ class Navigationbar extends React.PureComponent {
     this.props.unauthenticate();
   };
 
-  getNavItems = () => {
-    return map(Object.entries(config.routes), ([key, value]) => {
+  getNavItems = (isPrivate = true) => {
+    const navItems = isPrivate
+      ? config.NavbarItems.private
+      : config.NavbarItems.public;
+    return map(Object.entries(navItems), ([key, value]) => {
       return (
         <NavItem
           key={key}
@@ -38,12 +41,16 @@ class Navigationbar extends React.PureComponent {
         <Navbar>
           <Nav>{this.getNavItems()}</Nav>
           <Nav pullRight>
-            <NavItem onClick={this.handleLogOut}>LOG OUT</NavItem>
+            <NavItem onClick={this.handleLogOut}>Log Out</NavItem>
           </Nav>
         </Navbar>
       );
     } else {
-      return null;
+      return (
+        <Navbar>
+          <Nav>{this.getNavItems(false)}</Nav>
+        </Navbar>
+      );
     }
   }
 }
