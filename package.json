@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@okta/okta-react": "^1.0.2",
     "axios": "^0.18.0",
     "history": "^4.7.2",
     "jwt-decode": "^2.2.0",
@@ -40,7 +41,6 @@
     "lint-fix": "./node_modules/.bin/eslint --fix .js src",
     "precommit": "lint-staged"
   },
-
   "lint-staged": {
     "*.{js,jsx}": [
       "./node_modules/.bin/eslint --fix",

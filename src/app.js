@@ -1,50 +1,31 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-
-import NavBar from './component/navbar';
-import Dashboard from './pages/dashboard';
-import Contact from './pages/contact';
-import Home from './pages/home';
-import Login from './pages/login';
-import PropViewer from './pages/propViewer';
-import requireAuth from './common/requireAuth';
-import noRequireAuth from './common/noRequireAuth';
+// using okta as OpenID Provider (Auth Server) implict flow https://developer.okta.com/quickstart/#/react/nodejs/express
+import { Security, ImplicitCallback } from '@okta/okta-react';
 
 import history from './history';
-import config from './config';
-import ColorSwatch from './component/colorSwatch';
-import SmartColorSwatch from './component/smartColorSwatch';
+import oktaHome from './common/oktaHome';
 
+const config = {
+  issuer: 'https://dev-252245.oktapreview.com/oauth2/default',
+  redirect_uri: window.location.origin + '/implicit/callback',
+  client_id: '0oaf33dka7KoyNzLX0h7'
+};
 class App extends React.PureComponent {
   render() {
     return (
       <Router history={history}>
-        <div>
-          <NavBar />
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={requireAuth(Home)} />
-              <Route
-                path={config.routes.DASHBOARD}
-                component={requireAuth(Dashboard)}
-              />
-              <Route
-                path={config.routes.CONTACT}
-                component={requireAuth(Contact)}
-              />
-              <Route
-                path={config.routes.LOGIN}
-                component={noRequireAuth(Login)}
-              />
-              <Route path={config.routes.PROPS} component={PropViewer} />
-              <Route
-                exact
-                path={config.routes.COLOR}
-                render={() => <ColorSwatch text="Red" color="#ff0000" />}
-              />
-              <Route path="/:text/:color" component={SmartColorSwatch} />
-            </Switch>
-          </div>
+        <div className="container">
+          <Switch>
+            <Security
+              issuer={config.issuer}
+              client_id={config.client_id}
+              redirect_uri={config.redirect_uri}
+            >
+              <Route path="/okta" exact={true} component={oktaHome} />
+              <Route path="/implicit/callback" component={ImplicitCallback} />
+            </Security>
+          </Switch>
         </div>
       </Router>
     );

@@ -20,5 +20,12 @@ export default {
       Color: '/color',
       Login: '/login'
     }
+  },
+  okta: {
+    config: {
+      issuer: 'https://dev-252245.oktapreview.com/oauth2/default',
+      redirect_uri: window.location.origin + '/implicit/callback',
+      client_id: '0oaf33dka7KoyNzLX0h7'
+    }
   }
 };

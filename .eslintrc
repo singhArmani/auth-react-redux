@@ -19,7 +19,6 @@
   "rules": {
     "react/prop-types": ["off"],
     "quotes": ["error", "single"],
-    "semi": ["error", "always"],
     "prettier/prettier": ["error", {
       "singleQuote": true
     }]
