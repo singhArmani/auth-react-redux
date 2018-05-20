@@ -14,7 +14,7 @@ export const getGoals = () => {
     dispatch(startFetchingGoals());
     try {
       const response = await GoalApi.getGoals();
-      dispatch(updateGoals(response.data.goalList));
+      dispatch(updateGoals(response.data.goals));
       dispatch(stopFetchingGoals());
     } catch (err) {
       dispatch(stopFetchingGoals());

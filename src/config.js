@@ -8,6 +8,7 @@ export default {
     CONTACT: '/contact',
     LOGIN: '/login',
     PROPS: '/props',
-    COLOR: '/colors'
+    COLOR: '/colors',
+    SMARTCOLOR: '/color/:text/:color'
   }
 };

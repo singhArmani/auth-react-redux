@@ -20,7 +20,6 @@ class App extends React.PureComponent {
       <Router history={history}>
         <div>
           <NavBar />
-
           <div className="container">
             <Switch>
               <Route exact path="/" component={requireAuth(Home)} />
@@ -40,7 +39,10 @@ class App extends React.PureComponent {
                 path={config.routes.PROPS}
                 component={noRequireAuth(PropViewer)}
               />
-              <Route path={config.routes.COLOR} render={() => <ColorSwatch text='Red' color="#ff0000" />} />
+              <Route
+                path={config.routes.COLOR}
+                render={() => <ColorSwatch text="Red" color="#ff0000" />}
+              />
             </Switch>
           </div>
         </div>

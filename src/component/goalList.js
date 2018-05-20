@@ -1,13 +1,13 @@
 import React from 'react';
 import { map } from 'lodash';
-import { bool, arrayOf, string } from 'prop-types';
+import { bool, object, arrayOf, string } from 'prop-types';
 import { Alert } from 'react-bootstrap';
 
 import Goal from '../common/goal';
 
 const GoalList = props => {
   if (props.isFetchingGoals) {
-    return <h3>Fetching GoalList... </h3>;
+    return <div>Fetching GoalList... </div>;
   }
   if (props.errorFetchingGoals) {
     return <Alert bsStyle="danger">{props.errorFetchingGoals}</Alert>;
@@ -20,6 +20,7 @@ const GoalList = props => {
 
 GoalList.propTypes = {
   isFetchingGoals: bool.isRequired,
+  errorFetchingGoals: object,
   goalList: arrayOf(string).isRequired
 };
 export default GoalList;
